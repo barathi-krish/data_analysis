@@ -15,6 +15,20 @@ clean_tz = frame['tz'].fillna('Missing')
 clean_tz[clean_tz == ''] = 'Unknown'
 tz_counts = clean_tz.value_counts()
 print(tz_counts[:10])
+# following are the options for plot kind in pandas data-frame plot for arg type
+
+# line : line plot (default)
+# bar : vertical bar plot
+# barh : horizontal bar plot
+# hist : histogram
+# box : boxplot
+# kde : Kernel Density Estimation plot
+# density : same as kde
+# area : area plot
+# pie : pie plot
+# scatter : scatter plot
+# hexbin : hexbin plot
+
 tz_counts[:10].plot(kind='barh', rot=0)  # plot 1
 plt.show()  # Mandatory to use for pycharm
 
