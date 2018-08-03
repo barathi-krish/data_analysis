@@ -1,11 +1,14 @@
 # A basic Pandas example
 
 import json
+import os
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-path = 'usagov_bitly_data2012-03-16-1331923249.txt'
+data_folder = os.path.join("input")
+
+path = os.path.join(data_folder, "usagov_bitly_data2012-03-16-1331923249.txt")
 
 records = [json.loads(line) for line in open(path)]
 frame = pd.DataFrame(records)
@@ -29,7 +32,7 @@ print(tz_counts[:10])
 # scatter : scatter plot
 # hexbin : hexbin plot
 
-tz_counts[:10].plot(kind='barh', rot=0)  # plot 1
+tz_counts[:10].plot(kind='bar', rot=90)  # plot 1
 plt.show()  # Mandatory to use for pycharm
 
 results = pd.Series([x.split()[0] for x in frame.a.dropna()])
